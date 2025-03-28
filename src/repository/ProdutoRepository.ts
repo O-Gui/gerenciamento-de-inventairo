@@ -1,6 +1,7 @@
 import { Produto } from "../models/Produto";
+import IProdutoRepository from "./iProdutoRespository";
 
-export class ProdutoRepository {
+export class ProdutoRepository implements IProdutoRepository {
     produtos: Produto[] = [];
 
     insert(produto: Produto): Produto {
@@ -17,7 +18,7 @@ export class ProdutoRepository {
         return this.produtos;
     }
 
-    findById(id:number) : Produto | undefined {
+    findById(id: number) : Produto | undefined {
         return this.produtos.find(p => p.getId() === id);
     }
 
