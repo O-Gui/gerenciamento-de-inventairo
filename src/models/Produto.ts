@@ -19,67 +19,67 @@ export class Produto {
         this.dataAtualizacao = dataAtualizacao;
     }
 
-    public getId(): number {
+    getId(): number {
         return this.id;
     }
 
-    public setId(id: number): void {
+    setId(id: number): void {
         this.id = id;
     }
 
-    public getNome(): string {
+    getNome(): string {
         return this.nome;
     }
 
-    public setNome(nome: string): void {
+    setNome(nome: string): void {
         this.nome = nome;
     }
 
-    public getDescricao(): string {
+    getDescricao(): string {
         return this.descricao;
     }
 
-    public setDescricao(descricao: string): void {
+    setDescricao(descricao: string): void {
         this.descricao = descricao;
     }
 
-    public getPreco(): number {
+    getPreco(): number {
         return this.preco;
     }
 
-    public setPreco(preco: number): void {
+    setPreco(preco: number): void {
         this.preco = preco;
     }
 
-    public getQuantidade(): number {
+    getQuantidade(): number {
         return this.quantidade;
     }
 
-    public setQuantidade(quantidade: number): void {
+    setQuantidade(quantidade: number): void {
         this.quantidade = quantidade;
     }
 
-    public getCategoriaId(): number {
+    getCategoriaId(): number {
         return this.categoriaId;
     }
 
-    public setCategoriaId(categoriaId: number): void {
+    setCategoriaId(categoriaId: number): void {
         this.categoriaId = categoriaId;
     }
 
-    public getDataCriacao(): Date {
+    getDataCriacao(): Date {
         return this.dataCriacao;
     }
 
-    public setDataCriacao(dataCriacao: Date): void {
+    setDataCriacao(dataCriacao: Date): void {
         this.dataCriacao = dataCriacao;
     }
 
-    public getDataAtualizacao(): Date {
+    getDataAtualizacao(): Date {
         return this.dataAtualizacao;
     }
 
-    public setDataAtualizacao(dataAtualizacao: Date): void {
+    setDataAtualizacao(dataAtualizacao: Date): void {
         this.dataAtualizacao = dataAtualizacao;
     }
 }
