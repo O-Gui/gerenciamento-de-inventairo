@@ -5,8 +5,11 @@
 
 import {Produto} from "./models/Produto";
 import {ProdutoRepository} from "./repository/ProdutoRepository";
+import {CategoriaRepository} from "./repository/CategoriaRepository";
+import {Categoria} from "./models/Categoria";
 
 const produtoRepository = new ProdutoRepository();
+const categoriaRepository = new CategoriaRepository();
 
 const produto1 = new Produto(
     1,
@@ -18,6 +21,13 @@ const produto1 = new Produto(
     new Date(),
     new Date()
 );
+
+const categoria1 = new Categoria(
+    1,
+    "Eletrônicos",
+    "Categoria de produtos eletrônicos",
+    new Date()
+)
 
 produtoRepository.insert(produto1);
 produtoRepository.findAll().forEach(produto => {
@@ -38,4 +48,16 @@ console.log(produtoRepository.update(new Produto(
 )))
 
 console.log(produtoRepository.findById(1));
-console.log("-------------------");
+
+console.log("-------- Categoria -----------");
+
+categoriaRepository.insert(categoria1);
+categoriaRepository.findAll().forEach(categoria => {
+    console.log(categoria);
+});
+categoriaRepository.delete(1);
+console.log("-------- Categoria Deletada -----------");
+
+categoriaRepository.findAll().forEach(categoria => {
+    console.log(categoria);
+});

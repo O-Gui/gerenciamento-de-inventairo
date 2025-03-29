@@ -1,8 +1,11 @@
 import {Categoria} from "../models/Categoria";
 import ICategoriaRepository from "./iCategoriaRespository";
+import {ProdutoRepository} from "./ProdutoRepository";
 
 export class CategoriaRepository implements ICategoriaRepository {
     categorias: Categoria[] = [];
+
+    produtoRepository = new ProdutoRepository();
 
     insert(categoria: Categoria): Categoria {
         this.categorias.push(categoria);
@@ -15,7 +18,10 @@ export class CategoriaRepository implements ICategoriaRepository {
     }
 
     delete (id: number): void {
-        this.categorias = this.categorias.filter(p => p.getId() !== id);
+        const produtos = this.produtoRepository.findByCategory(id);
+        if (produtos.length === 0) {
+            this.categorias = this.categorias.filter(p => p.getId() !== id);
+        }
     }
 
     findAll(): Categoria[] {
