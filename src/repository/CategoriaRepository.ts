@@ -14,6 +14,10 @@ export class CategoriaRepository implements ICategoriaRepository {
         return categoria;
     }
 
+    delete (id: number): void {
+        this.categorias = this.categorias.filter(p => p.getId() !== id);
+    }
+
     findAll(): Categoria[] {
         return this.categorias;
     }
