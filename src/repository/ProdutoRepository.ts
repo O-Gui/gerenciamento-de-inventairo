@@ -14,6 +14,10 @@ export class ProdutoRepository implements IProdutoRepository {
         return produto;
     }
 
+    delete(id: number) {
+        this.produtos = this.produtos.filter(p => p.getId() !== id);
+    }
+
     findAll(): Produto[] {
         return this.produtos;
     }

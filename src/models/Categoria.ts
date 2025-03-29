@@ -11,35 +11,35 @@ export class Categoria {
         this.dataCriacao = dataCriacao;
     }
 
-    public getId(): number {
+     getId(): number {
         return this.id;
     }
 
-    public setId(id: number): void {
+     setId(id: number): void {
         this.id = id;
     }
 
-    public getNome(): string {
+     getNome(): string {
         return this.nome;
     }
 
-    public setNome(nome: string): void {
+     setNome(nome: string): void {
         this.nome = nome;
     }
 
-    public getDescricao(): string {
+     getDescricao(): string {
         return this.descricao;
     }
 
-    public setDescricao(descricao: string): void {
+     setDescricao(descricao: string): void {
         this.descricao = descricao;
     }
 
-    public getDataCriacao(): Date {
+     getDataCriacao(): Date {
         return this.dataCriacao;
     }
 
-    public setDataCriacao(dataCriacao: Date): void {
+     setDataCriacao(dataCriacao: Date): void {
         this.dataCriacao = dataCriacao;
     }
 }
