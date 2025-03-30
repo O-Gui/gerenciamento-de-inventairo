@@ -1,9 +1,9 @@
 # Nomes dos Integrantes do Grupo
 - Guilherme Luan Silva dos Reis - UC23200423
-- Gabriel Victor Vidal de Sales - UC
+- Gabriel Victor Vidal de Sales - UC23200816
 - Guilherme Basilio Silva Felix Xavier - UC
-- Guilherme Soares - UC
-- Flávio Oliveira Morais Leite - UC
+- Guilherme Soares - UC23101914
+- Flávio Oliveira Morais Leite - UC23101606
 
 # Requisitos para o Projeto em TypeScript
 

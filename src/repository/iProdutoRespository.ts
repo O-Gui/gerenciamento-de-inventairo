@@ -8,4 +8,5 @@ export default interface IProdutoRepository {
     findById(id: number): Produto | undefined;
     findByName(name: string): Produto | undefined;
     findByCategory(categoryId: number): Produto[];
+    assertThatProductExists(id: number): Produto;
 }

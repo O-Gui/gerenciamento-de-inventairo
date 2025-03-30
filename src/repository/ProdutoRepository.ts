@@ -10,11 +10,13 @@ export class ProdutoRepository implements IProdutoRepository {
     }
 
     update(produto: Produto): Produto {
+        this.assertThatProductExists(produto.getId());
         this.produtos = this.produtos.map(p => p.getId() === produto.getId() ? produto : p);
         return produto;
     }
 
     delete(id: number) {
+        this.assertThatProductExists(id);
         this.produtos = this.produtos.filter(p => p.getId() !== id);
     }
 
@@ -32,5 +34,13 @@ export class ProdutoRepository implements IProdutoRepository {
 
     findByCategory(categoryId: number) : Produto[] {
         return this.produtos.filter(p => p.getCategoriaId() === categoryId);
+    }
+
+    assertThatProductExists(id: number): Produto {
+        const produto = this.findById(id);
+        if (!produto) {
+            throw new Error(`Produto com id ${id} não encontrado`);
+        }
+        return produto;
     }
 }
