@@ -1,5 +1,4 @@
 import {Categoria} from "../models/Categoria";
-import { Produto } from "../models/Produto";
 import ICategoriaRepository from "./iCategoriaRespository";
 import {ProdutoRepository} from "./ProdutoRepository";
 
@@ -19,7 +18,7 @@ export class CategoriaRepository implements ICategoriaRepository {
         return categoria;
     }
 
-    delete (id: number): void {
+    delete(id: number): void {
         this.assertThatCategoriaExists(id);
 
         const produtos = this.produtoRepository.findByCategory(id);

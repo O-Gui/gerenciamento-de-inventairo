@@ -1,22 +1,21 @@
 export class Produto {
+    private static nextId: number = 1;
     private id: number;
     private nome: string;
     private descricao: string;
     private preco: number;
     private quantidade: number;
     private categoriaId: number;
-    private dataCriacao: Date;
-    private dataAtualizacao: Date;
+    private dataCriacao?: Date;
+    private _dataAtualizacao?: Date;
 
-    constructor(id: number, nome: string, descricao: string, preco: number, quantidade: number, categoriaId: number, dataCriacao: Date, dataAtualizacao: Date) {
-        this.id = id;
+    constructor(nome: string, descricao: string, preco: number, quantidade: number, categoriaId: number) {
+        this.id = Produto.nextId++;
         this.nome = nome;
         this.descricao = descricao;
         this.preco = preco;
         this.quantidade = quantidade;
         this.categoriaId = categoriaId;
-        this.dataCriacao = dataCriacao;
-        this.dataAtualizacao = dataAtualizacao;
     }
 
     getId(): number {
@@ -68,18 +67,18 @@ export class Produto {
     }
 
     getDataCriacao(): Date {
-        return this.dataCriacao;
+        return <Date>this.dataCriacao;
     }
 
     setDataCriacao(dataCriacao: Date): void {
         this.dataCriacao = dataCriacao;
     }
 
-    getDataAtualizacao(): Date {
-        return this.dataAtualizacao;
+    get dataAtualizacao(): Date {
+        return <Date>this._dataAtualizacao;
     }
 
     setDataAtualizacao(dataAtualizacao: Date): void {
-        this.dataAtualizacao = dataAtualizacao;
+        this._dataAtualizacao = dataAtualizacao;
     }
 }

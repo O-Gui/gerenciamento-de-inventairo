@@ -1,4 +1,4 @@
-import { Produto } from "../models/Produto";
+import {Produto} from "../models/Produto";
 import IProdutoRepository from "./iProdutoRespository";
 
 export class ProdutoRepository implements IProdutoRepository {
@@ -24,15 +24,15 @@ export class ProdutoRepository implements IProdutoRepository {
         return this.produtos;
     }
 
-    findById(id: number) : Produto | undefined {
+    findById(id: number): Produto | undefined {
         return this.produtos.find(p => p.getId() === id);
     }
 
-    findByName(name: string) : Produto | undefined {
+    findByName(name: string): Produto | undefined {
         return this.produtos.find(p => p.getNome() === name);
     }
 
-    findByCategory(categoryId: number) : Produto[] {
+    findByCategory(categoryId: number): Produto[] {
         return this.produtos.filter(p => p.getCategoriaId() === categoryId);
     }
 
