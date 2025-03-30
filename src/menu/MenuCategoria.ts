@@ -6,7 +6,7 @@ export function MenuCategoria(categoriaRepository: CategoriaRepository) {
     const prompt = promptSync();
 
     while (true) {
-        console.log("-=-=-=-=-= Categoria dos Produtos =-=-=-=-=");
+        console.log("-=-=-=-=-= Categoria dos Categoria =-=-=-=-=");
         console.log("1 - Mostrar todas as categorias");
         console.log("2 - Criar nova categoria");
         console.log("3 - Modificar categoria existente");
@@ -87,7 +87,7 @@ function modificarCategoriaExistente(categoriaRepository: CategoriaRepository, p
     const descricao = prompt(`Digite a nova descrição da categoria (atual: ${categoriaExistente.getDescricao()}): `);
 
     const categoriaAtualizada = new Categoria(nome, descricao);
-    categoriaAtualizada.setId(id); // Certifique-se de que o ID permanece o mesmo
+    categoriaAtualizada.setId(id);
     categoriaRepository.update(categoriaAtualizada);
 
     console.log("Categoria modificada com sucesso!");
