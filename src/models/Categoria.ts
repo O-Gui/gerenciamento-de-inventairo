@@ -1,45 +1,46 @@
 export class Categoria {
+    private static nextId: number = 1;
     private id: number;
     private nome: string;
     private descricao: string;
-    private dataCriacao: Date;
+    private dataCriacao?: Date;
 
-    constructor(id: number, nome: string, descricao: string, dataCriacao: Date) {
-        this.id = id;
+    constructor(nome: string, descricao: string) {
+        this.id = Categoria.nextId++;
         this.nome = nome;
         this.descricao = descricao;
-        this.dataCriacao = dataCriacao;
+        this.dataCriacao = new Date();
     }
 
-     getId(): number {
+    getId(): number {
         return this.id;
     }
 
-     setId(id: number): void {
+    setId(id: number): void {
         this.id = id;
     }
 
-     getNome(): string {
+    getNome(): string {
         return this.nome;
     }
 
-     setNome(nome: string): void {
+    setNome(nome: string): void {
         this.nome = nome;
     }
 
-     getDescricao(): string {
+    getDescricao(): string {
         return this.descricao;
     }
 
-     setDescricao(descricao: string): void {
+    setDescricao(descricao: string): void {
         this.descricao = descricao;
     }
 
-     getDataCriacao(): Date {
-        return this.dataCriacao;
+    getDataCriacao(): Date {
+        return <Date>this.dataCriacao;
     }
 
-     setDataCriacao(dataCriacao: Date): void {
+    setDataCriacao(dataCriacao: Date): void {
         this.dataCriacao = dataCriacao;
     }
 }

@@ -11,7 +11,10 @@ export function MenuProduto(produtoRepository: ProdutoRepository) {
         console.log("2 - Criar novo produto");
         console.log("3 - Modificar produto existente");
         console.log("4 - Deletar produto existente");
-        console.log("5 - Voltar ao menu principal");
+        console.log("5 - Buscar produto por ID");
+        console.log("6 - Buscar produto por nome");
+        console.log("7 - Buscar produto por categoria");
+        console.log("8 - Voltar ao menu principal");
         console.log("=======================================");
 
         const option = prompt("Qual opção deseja ver?: ");
@@ -30,6 +33,15 @@ export function MenuProduto(produtoRepository: ProdutoRepository) {
                 deletarProdutoExistente(produtoRepository, prompt);
                 break;
             case "5":
+                buscarProdutoPorId(produtoRepository, prompt);
+                break;
+            case "6":
+                buscarProdutoPorNome(produtoRepository, prompt);
+                break;
+            case "7":
+                buscarProdutoPorCategoria(produtoRepository, prompt);
+                break;
+            case "8":
                 return;
             default:
                 console.log("Opção inválida. Tente novamente.");
@@ -126,4 +138,49 @@ function deletarProdutoExistente(produtoRepository: ProdutoRepository, prompt: a
 
     produtoRepository.delete(id);
     console.log("Produto deletado com sucesso!");
+}
+
+function buscarProdutoPorId(produtoRepository: ProdutoRepository, prompt: any) {
+    const id = parseInt(prompt("Digite o ID do produto: "), 10);
+    if (isNaN(id)) {
+        console.log("ID inválido. Tente novamente.");
+        return;
+    }
+
+    const produto = produtoRepository.findById(id);
+    if (!produto) {
+        console.log("Produto não encontrado.");
+    } else {
+        console.log(produto);
+    }
+}
+
+function buscarProdutoPorNome(produtoRepository: ProdutoRepository, prompt: any) {
+    const nome = prompt("Digite o nome do produto: ");
+    if (!nome) {
+        console.log("Nome inválido. Tente novamente.");
+        return;
+    }
+
+    const produto = produtoRepository.findByName(nome);
+    if (!produto) {
+        console.log("Produto não encontrado.");
+    } else {
+        console.log(produto);
+    }
+}
+
+function buscarProdutoPorCategoria(produtoRepository: ProdutoRepository, prompt: any) {
+    const categoriaId = parseInt(prompt("Digite o ID da categoria: "), 10);
+    if (isNaN(categoriaId)) {
+        console.log("ID da categoria inválido. Tente novamente.");
+        return;
+    }
+
+    const produtos = produtoRepository.findByCategory(categoriaId);
+    if (produtos.length === 0) {
+        console.log("Nenhum produto encontrado para esta categoria.");
+    } else {
+        produtos.forEach(produto => console.log(produto));
+    }
 }
